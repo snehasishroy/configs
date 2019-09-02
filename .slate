@@ -1,0 +1,103 @@
+alias monitor-dellLeft 0 
+alias monitor-macbook 1 
+alias monitor-dellRight 2 
+alias editor 'IntelliJ IDEA'
+alias browser 'Google Chrome'
+alias outlook  'Microsoft Outlook'
+alias terminal 'iTerm2'
+alias chime 'Amazon Chime'
+# Laptop monitor
+alias macbook-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-macbook}
+
+# Dell monitor1
+alias dellLeft-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-dellLeft}
+
+# Dell monitor2
+alias dellRight-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-dellRight}
+
+# THREE MONITOR LAYOUT
+# -------------------------------------------------------------------
+
+layout 3monitors ${editor}:REPEAT ${dellRight-full}
+layout 3monitors ${terminal}:REPEAT ${dellLeft-full}
+layout 3monitors ${browser}:REPEAT ${dellLeft-full}
+layout 3monitors ${outlook}:REPEAT ${macbook-full}
+
+# Bind a key to trigger this layout
+bind r:ctrl;shift;cmd layout 3monitors
+
+# Trigger this layout automatically when 3 monitors are present
+default 3monitors resolutions:${monitor-dellLeft};${monitor-macbook};${monitor-dellRight}
+
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+
+alias directionLeft h
+alias directionRight l
+alias directionUp k
+alias directionDown j
+
+alias halfScreenPush :ctrl;shift;cmd
+alias normalResize :alt
+alias altResize :shift;alt
+
+alias focusTo :ctrl;shift;cmd
+alias nudgeTo :ctrl;shift;alt
+
+# Push Bindings
+# Half screen
+#bind ${directionUp}${halfScreenPush}    push up    bar-resize:screenSizeY/2
+#bind ${directionRight}${halfScreenPush} push right bar-resize:screenSizeX/2
+#bind ${directionDown}${halfScreenPush}  push down  bar-resize:screenSizeY/2
+#bind ${directionLeft}${halfScreenPush}  push left  bar-resize:screenSizeX/2
+
+#bind f:ctrl;shift;cmd  push down  bar-resize:screenSizeY
+
+# One third screen
+# bind ;:ctrl;alt  push right bar-resize:screenSizeX/3
+# bind j:ctrl;alt  push left  bar-resize:screenSizeX/3
+# bind l:ctrl;alt  push up    bar-resize:screenSizeY/3
+# bind k:ctrl;alt  push down  bar-resize:screenSizeY/3
+
+# bind f:ctrl;alt  push down  bar-resize:screenSizeY
+
+# Focus Bindings
+bind ${directionUp}${focusTo}    focus up
+bind ${directionRight}${focusTo}    focus right
+bind ${directionDown}${focusTo}    focus down
+bind ${directionLeft}${focusTo}    focus left
+
+bind b${focusTo} focus 'Firefox'
+bind m${focusTo} focus ${outlook}
+bind c${focusTo} focus ${chime}
+bind g${focusTo} focus ${browser}
+bind i${focusTo} focus ${editor}
+
+# Resize Bindings
+#bind ${directionUp}${normalResize}          resize +0   -10%
+#bind ${directionRight}${normalResize}       resize +10% +0
+#bind ${directionDown}${normalResize}        resize +0   +10%
+#bind ${directionLeft}${normalResize}        resize -10% +0
+
+#bind ${directionUp}${altResize}     resize +0   +10% bottom-right
+#bind ${directionRight}${altResize}  resize -10% +0 bottom-right
+#bind ${directionDown}${altResize}   resize +0   -10% bottom-right
+#bind ${directionLeft}${altResize}   resize +10% +0 bottom-right
+
+# yet to configure
+
+# Nudge Bindings
+#bind ${directionRight}${nudgeTo} nudge +10% +0
+#bind ${directionLeft}${nudgeTo}  nudge -10% +0
+#bind ${directionUp}${nudgeTo}    nudge +0   -10%
+#bind ${directionDown}${nudgeTo}  nudge +0   +10%
+
+# Window Hints
+bind esc:cmd hint ASDFGHJKLQWERTYUIOPCVBN
+config defaultToCurrentScreen true
+# Shows app icons and background apps, spreads icons in the same place.
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+config windowHintsSpread true
+config windowHintsDuration 5
+config windowHintsOrder persist
