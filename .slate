@@ -21,7 +21,7 @@ alias dellRight-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${
 layout 3monitors ${editor}:REPEAT ${dellRight-full}
 layout 3monitors ${terminal}:REPEAT ${dellLeft-full}
 layout 3monitors ${browser}:REPEAT ${dellLeft-full}
-layout 3monitors ${outlook}:REPEAT ${macbook-full}
+layout 3monitors ${outlook}:REPEAT ${dellLeft-full}
 
 # Bind a key to trigger this layout
 bind r:ctrl;shift;cmd layout 3monitors
@@ -100,4 +100,4 @@ config windowHintsShowIcons true
 config windowHintsIgnoreHiddenWindows false
 config windowHintsSpread true
 config windowHintsDuration 5
-config windowHintsOrder persist
+#config windowHintsOrder persist
