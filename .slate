@@ -1,6 +1,7 @@
 alias monitor-dellLeft 0 
 alias monitor-macbook 1 
 alias monitor-dellRight 2 
+alias monitor-asus 0
 alias editor 'IntelliJ IDEA'
 alias browser 'Google Chrome'
 alias outlook  'Microsoft Outlook'
@@ -15,19 +16,30 @@ alias dellLeft-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${m
 # Dell monitor2
 alias dellRight-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-dellRight}
 
-# THREE MONITOR LAYOUT
-# -------------------------------------------------------------------
+# Asus monitor2
+alias asus-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-asus}
 
+# THREE MONITOR LAYOUT
 layout 3monitors ${editor}:REPEAT ${dellRight-full}
 layout 3monitors ${terminal}:REPEAT ${dellLeft-full}
 layout 3monitors ${browser}:REPEAT ${dellLeft-full}
 layout 3monitors ${outlook}:REPEAT ${dellLeft-full}
 
+# TWO MONITOR LAYOUT
+layout 2monitors ${editor}:REPEAT ${asus-full}
+layout 2monitors ${terminal}:REPEAT ${asus-full}
+layout 2monitors ${browser}:REPEAT ${asus-full}
+layout 2monitors ${outlook}:REPEAT ${asus-full}
+
+
 # Bind a key to trigger this layout
-bind r:ctrl;shift;cmd layout 3monitors
+bind 3:ctrl;shift;cmd layout 3monitors
+
+bind 2:ctrl;shift;cmd layout 2monitors
 
 # Trigger this layout automatically when 3 monitors are present
 default 3monitors resolutions:${monitor-dellLeft};${monitor-macbook};${monitor-dellRight}
+default 2monitors resolutions:${monitor-dellLeft};${monitor-macbook};${monitor-dellRight}
 
 config nudgePercentOf screenSize
 config resizePercentOf screenSize
@@ -72,6 +84,7 @@ bind m${focusTo} focus ${outlook}
 bind c${focusTo} focus ${chime}
 bind g${focusTo} focus ${browser}
 bind i${focusTo} focus ${editor}
+bind t${focusTo} focus ${terminal}
 
 # Resize Bindings
 #bind ${directionUp}${normalResize}          resize +0   -10%
