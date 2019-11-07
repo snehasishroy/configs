@@ -5,8 +5,12 @@ alias monitor-asus 0
 alias editor 'IntelliJ IDEA'
 alias browser 'Google Chrome'
 alias outlook  'Microsoft Outlook'
+alias oneNote  'Microsoft OneNote'
 alias terminal 'iTerm2'
 alias chime 'Amazon Chime'
+alias sublime 'Sublime Text'
+alias finder 'Finder'
+
 # Laptop monitor
 alias macbook-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-macbook}
 
@@ -24,13 +28,16 @@ layout 3monitors ${editor}:REPEAT ${dellRight-full}
 layout 3monitors ${terminal}:REPEAT ${dellLeft-full}
 layout 3monitors ${browser}:REPEAT ${dellLeft-full}
 layout 3monitors ${outlook}:REPEAT ${dellLeft-full}
+layout 3monitors ${sublime}:REPEAT ${macbook-full}
+layout 3monitors ${oneNote}:REPEAT ${macbook-full}
 
 # TWO MONITOR LAYOUT
 layout 2monitors ${editor}:REPEAT ${asus-full}
 layout 2monitors ${terminal}:REPEAT ${asus-full}
 layout 2monitors ${browser}:REPEAT ${asus-full}
 layout 2monitors ${outlook}:REPEAT ${asus-full}
-
+layout 2monitors ${sublime}:REPEAT ${macbook-full}
+layout 2monitors ${oneNote}:REPEAT ${macbook-full}
 
 # Bind a key to trigger this layout
 bind 3:ctrl;shift;cmd layout 3monitors
@@ -85,6 +92,9 @@ bind c${focusTo} focus ${chime}
 bind g${focusTo} focus ${browser}
 bind i${focusTo} focus ${editor}
 bind t${focusTo} focus ${terminal}
+bind s${focusTo} focus ${sublime}
+bind o${focusTo} focus ${oneNote}
+bind f${focusTo} focus ${finder}
 
 # Resize Bindings
 #bind ${directionUp}${normalResize}          resize +0   -10%
