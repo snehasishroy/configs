@@ -147,3 +147,8 @@ prompt_dir() {
    prompt_segment blue black '%2~'
 }
 export BRAZIL_PLATFORM_OVERRIDE=RHEL5_64
+alias mc='monomer clean'
+alias mb='monomer build'
+alias mbr='monomer build --full'
+alias bbs='bb server'
+export PATH="$PATH:/apollo/env/BarkCLI/bin"
