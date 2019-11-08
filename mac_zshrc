@@ -129,7 +129,8 @@ export PATH=$HOME/.toolbox/bin:$PATH
 alias selenium-server3='java -Dwebdriver.chrome.driver=/Users/asishroy/Downloads/chromedriver -jar /Users/asishroy/Downloads/selenium-server-standalone-3.141.59.jar'
 alias odin="ssh -fNL 2009:127.0.0.1:2009 dev-dsk-asishroy-1b-b101d63c.eu-west-1.amazon.com"
 export PATH=$HOME/bin:$HOME/.toolbox/bin:$PATH
-bindkey -v
+bindkey -v #vim mode
+export KEYTIMEOUT=1
 
 alias gcc='gcc-9'
 alias cc='gcc-9'
@@ -150,3 +151,38 @@ export PATH="/usr/local/bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 alias gamma="ssh cheetah-dev-gamma-asishroy-1a-a661cd3c.us-east-1.amazon.com"
+HISTSIZE=100000
+SAVEHIST=10000
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+# Use lf to switch directories and bind it to ctrl-o
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+bindkey -s '^o' 'lfcd\n'
