@@ -1,21 +1,7 @@
-set runtimepath+=~/.vim_runtime
-
-source ~/.vim_runtime/vimrcs/basic.vim
-source ~/.vim_runtime/vimrcs/filetypes.vim
-source ~/.vim_runtime/vimrcs/plugins_config.vim
-source ~/.vim_runtime/vimrcs/extended.vim
-
-try
-source ~/.vim_runtime/my_configs.vim
-catch
-endtry
-
-:colorscheme ir_black
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") |  exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-
-map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.         isTabTree()) | q | endif
+set relativenumber
 set number
+set incsearch                                                                 " search characters when entered
+set hlsearch                                                                  " highlight matches
+set ignorecase                                                                " case insensitive
+set smartcase                                                                 " case sensitive if has capital letters
+

@@ -6,10 +6,12 @@ alias editor 'IntelliJ IDEA'
 alias browser 'Google Chrome'
 alias outlook  'Microsoft Outlook'
 alias oneNote  'Microsoft OneNote'
+alias rdp 'Microsoft Remote Desktop'
 alias terminal 'iTerm2'
 alias chime 'Amazon Chime'
 alias sublime 'Sublime Text'
 alias finder 'Finder'
+alias vpn 'Cisco AnyConnect Secure Mobility Client'
 
 # Laptop monitor
 alias macbook-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-macbook}
@@ -24,20 +26,25 @@ alias dellRight-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${
 alias asus-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-asus}
 
 # THREE MONITOR LAYOUT
+layout 3monitors ${rdp}:REPEAT ${dellRight-full}
 layout 3monitors ${editor}:REPEAT ${dellRight-full}
 layout 3monitors ${terminal}:REPEAT ${dellLeft-full}
 layout 3monitors ${browser}:REPEAT ${dellLeft-full}
 layout 3monitors ${outlook}:REPEAT ${dellLeft-full}
 layout 3monitors ${sublime}:REPEAT ${macbook-full}
+layout 3monitors ${chime}:REPEAT ${macbook-full}
 layout 3monitors ${oneNote}:REPEAT ${macbook-full}
 
 # TWO MONITOR LAYOUT
+layout 2monitors ${rdp}:REPEAT ${asus-full}
 layout 2monitors ${editor}:REPEAT ${asus-full}
 layout 2monitors ${terminal}:REPEAT ${asus-full}
 layout 2monitors ${browser}:REPEAT ${asus-full}
 layout 2monitors ${outlook}:REPEAT ${asus-full}
 layout 2monitors ${sublime}:REPEAT ${macbook-full}
+layout 2monitors ${chime}:REPEAT ${macbook-full}
 layout 2monitors ${oneNote}:REPEAT ${macbook-full}
+layout 2monitors ${vpn}:REPEAT ${macbook-full}
 
 # Bind a key to trigger this layout
 bind 3:ctrl;shift;cmd layout 3monitors
@@ -95,6 +102,8 @@ bind t${focusTo} focus ${terminal}
 bind s${focusTo} focus ${sublime}
 bind o${focusTo} focus ${oneNote}
 bind f${focusTo} focus ${finder}
+bind r${focusTo} focus ${rdp}
+bind v${focusTo} focus ${vpn}
 
 # Resize Bindings
 #bind ${directionUp}${normalResize}          resize +0   -10%

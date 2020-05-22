@@ -143,6 +143,7 @@ bindkey -v '^?' backward-delete-char
 export AMAZON_DRIVE_UPLOAD_PATH='shared-screenshots/code-reviews-'$(date +%Y)
 alias gcorecur="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git checkout mainline && echo)' \;";
 alias rdp="ssh -N -L 13390:localhost:3389 dev-dsk-asishroy-1b-b101d63c.eu-west-1.amazon.com"
+alias socks="ssh -D 8123 -f -C -q -N cheetah-dev-gamma-grokunal-1a-80541b9f.us-east-1.amazon.com"
 alias weather="curl http://v2.wttr.in/Bangalore"
 alias sync="rsync -avzr ~/Downloads/Sync /Volumes/Dumper"
 export PATH="/usr/local/bin:$PATH"
@@ -151,6 +152,7 @@ export PATH="/usr/local/bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 alias gamma="ssh cheetah-dev-gamma-asishroy-1a-a661cd3c.us-east-1.amazon.com"
+alias kunalGamma="ssh cheetah-dev-gamma-grokunal-1a-80541b9f.us-east-1.amazon.com"
 HISTSIZE=100000
 SAVEHIST=10000
 
@@ -186,3 +188,7 @@ lfcd () {
     fi
 }
 bindkey -s '^o' 'lfcd\n'
+alias rdebug="ssh -L 13001:localhost:13001 dev-dsk-asishroy-1b-b101d63c.eu-west-1.amazon.com"
+alias al2="ssh dev-dsk-asishroy-1b-29331c76.eu-west-1.amazon.com"
+alias cr="cr -o"
+alias status="watch -n 10 brazil pb view --status -r "
