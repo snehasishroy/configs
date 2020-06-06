@@ -2,10 +2,6 @@
 export ZSH="/Users/asishroy/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-POWERLEVEL9K_DISABLE_RPROMPT=true
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="▶ "
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -34,7 +30,10 @@ DISABLE_UPDATE_PROMPT="true"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(git zsh-autosuggestions sublime jsontools zsh-syntax-highlighting) #zsh-syntax-highlighting must be the last
+plugins=(git zsh-autosuggestions sublime jsontools iterm2 osx zsh-syntax-highlighting) #zsh-syntax-highlighting must be the last
+
+# Set custom highlight color for zsh-auto-suggestions, bcuz why not
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=201'
 
 source $ZSH/oh-my-zsh.sh
 
@@ -48,6 +47,7 @@ alias bb=brazil-build
 alias lsart='ls -lart'
 alias rdebug="ssh -L 13001:localhost:13001 dev-dsk-asishroy-1b-b101d63c.eu-west-1.amazon.com"
 alias al2="ssh dev-dsk-asishroy-1b-29331c76.eu-west-1.amazon.com"
+alias cloud="ssh dev-dsk-asishroy-1b-b101d63c.eu-west-1.amazon.com"
 alias cr="cr -o"
 alias status="watch -n 10 brazil pb view --status -r "
 alias shs="python -m SimpleHTTPServer"
@@ -118,3 +118,13 @@ lfcd () {
     fi
 }
 bindkey -s '^o' 'lfcd\n'
+
+eval $(thefuck --alias)
+# You can use whatever you want as an alias, like for Mondays:
+eval $(thefuck --alias FUCK)
+
+#effective only after installing the iterm shell integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
