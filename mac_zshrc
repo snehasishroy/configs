@@ -30,7 +30,16 @@ DISABLE_UPDATE_PROMPT="true"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(git zsh-autosuggestions sublime jsontools iterm2 osx zsh-syntax-highlighting) #zsh-syntax-highlighting must be the last
+# For adding git status in touchbar
+TOUCHBAR_GIT_ENABLED=true 
+GIT_UNCOMMITTED="+"
+GIT_UNSTAGED="!"
+GIT_UNTRACKED="?"
+GIT_STASHED="$"
+GIT_UNPULLED="⇣"
+GIT_UNPUSHED="⇡"
+
+plugins=(git zsh-autosuggestions sublime jsontools iterm2 osx zsh-iterm-touchbar zsh-syntax-highlighting) #zsh-syntax-highlighting must be the last
 
 # Set custom highlight color for zsh-auto-suggestions, bcuz why not
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=201'
@@ -80,8 +89,9 @@ export PATH=$HOME/bin:$HOME/.toolbox/bin:$PATH
 bindkey -v #vim mode
 bindkey "^R" history-incremental-search-backward
 bindkey -v '^?' backward-delete-char
+
 #install z
-#. /usr/local/etc/profile.d/z.sh
+. /usr/local/etc/profile.d/z.sh
 
 HISTSIZE=100000
 SAVEHIST=10000
@@ -128,3 +138,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+#For FZF, fuzzy searching
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
