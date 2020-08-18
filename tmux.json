@@ -1,9 +1,51 @@
 {
-  "Ansi 4 Color" : {
-    "Green Component" : "0.3960784",
-    "Blue Component" : "0.6431373",
-    "Red Component" : "0.2039216"
-  },
+  "Triggers" : [
+    {
+      "regex" : "ERROR|error|Error",
+      "action" : "HighlightTrigger"
+    },
+    {
+      "regex" : "FAILED|failed|Failed",
+      "action" : "HighlightTrigger"
+    },
+    {
+      "regex" : "Fault|FAULT|fault",
+      "action" : "HighlightTrigger"
+    },
+    {
+      "regex" : "Tests run: .*, Failures: .*, Errors: [^0].*, Skipped: .*\nTests run: .*, Failures: .*, Errors: [^0].*, Skipped: .*Tests run: .*, Failures: .*, Errors: [^0].*, Skipped: .*",
+      "action" : "HighlightTrigger"
+    },
+    {
+      "regex" : "Tests run: .*, Failures: [^0].*, Errors: .*, Skipped: .*",
+      "action" : "HighlightTrigger"
+    },
+    {
+      "regex" : "BUILD FAILED",
+      "action" : "iTermUserNotificationTrigger",
+      "parameter" : "You suck"
+    },
+    {
+      "regex" : "BUILD SUCCEEDED",
+      "action" : "iTermUserNotificationTrigger",
+      "parameter" : "All izz well"
+    },
+    {
+      "regex" : "Successfully updated Apollo environments",
+      "action" : "iTermUserNotificationTrigger",
+      "parameter" : "Apollo has landed"
+    },
+    {
+      "regex" : "Permission denied",
+      "action" : "iTermUserNotificationTrigger",
+      "parameter" : "Time to mwinit"
+    },
+    {
+      "regex" : "brazil failed",
+      "action" : "iTermUserNotificationTrigger",
+      "parameter" : "brazil failed"
+    }
+  ],
   "Tags" : [
 
   ],
@@ -12,37 +54,37 @@
     "Blue Component" : "0.8117647",
     "Red Component" : "0.4470588"
   },
-  "Ansi 5 Color" : {
-    "Green Component" : "0.3137255",
-    "Blue Component" : "0.4823529",
-    "Red Component" : "0.4588235"
-  },
+  "Right Option Key Sends" : 0,
   "Draw Powerline Glyphs" : true,
   "Bold Color" : {
     "Green Component" : "1",
     "Blue Component" : "1",
     "Red Component" : "1"
   },
-  "Use Non-ASCII Font" : false,
-  "Ansi 7 Color" : {
-    "Green Component" : "0.8431373",
-    "Blue Component" : "0.8117647",
-    "Red Component" : "0.827451"
+  "Ansi 6 Color" : {
+    "Green Component" : "0.5960785",
+    "Blue Component" : "0.6039215999999999",
+    "Red Component" : "0.02352941"
   },
-  "Ansi 8 Color" : {
-    "Green Component" : "0.3411765",
-    "Blue Component" : "0.3254902",
-    "Red Component" : "0.3333333"
+  "Ansi 0 Color" : {
+    "Green Component" : "0",
+    "Blue Component" : "0",
+    "Red Component" : "0"
   },
+  "Normal Font" : "MesloLGS-NF-Regular 15",
   "Rows" : 25,
   "Default Bookmark" : "No",
-  "Ansi 9 Color" : {
-    "Green Component" : "0.1607843",
-    "Blue Component" : "0.1607843",
-    "Red Component" : "0.9372549"
+  "Ansi 1 Color" : {
+    "Green Component" : "0",
+    "Blue Component" : "0",
+    "Red Component" : "0.8"
   },
-  "Transparency" : 0,
-  "Allow Title Reporting" : true,
+  "Horizontal Spacing" : 1,
+  "Ansi 3 Color" : {
+    "Green Component" : "0.627451",
+    "Blue Component" : "0",
+    "Red Component" : "0.7686275"
+  },
   "Cursor Guide Color" : {
     "Red Component" : 0.70213186740875244,
     "Color Space" : "sRGB",
@@ -80,9 +122,9 @@
   "Sync Title" : false,
   "Prompt Before Closing 2" : false,
   "BM Growl" : true,
-  "Mouse Reporting" : true,
   "Command" : "",
   "Description" : "Default",
+  "Mouse Reporting" : true,
   "Screen" : -1,
   "Selection Color" : {
     "Green Component" : "0.8353",
@@ -295,7 +337,7 @@
     "Alpha Component" : 0.5,
     "Green Component" : 0.1491314172744751
   },
-  "Scrollback Lines" : 1000,
+  "Scrollback Lines" : 0,
   "Send Code When Idle" : false,
   "Close Sessions On End" : true,
   "Terminal Type" : "xterm-256color",
@@ -316,51 +358,45 @@
   },
   "Minimum Contrast" : 0,
   "Shortcut" : "",
-  "Triggers" : [
-    {
-      "regex" : "ERROR|error|Error",
-      "action" : "HighlightTrigger"
-    },
-    {
-      "regex" : "FAILED|failed|Failed",
-      "action" : "HighlightTrigger"
-    },
-    {
-      "regex" : "Fault|FAULT|fault",
-      "action" : "HighlightTrigger"
-    },
-    {
-      "regex" : "Tests run: .*, Failures: .*, Errors: [^0].*, Skipped: .*\nTests run: .*, Failures: .*, Errors: [^0].*, Skipped: .*Tests run: .*, Failures: .*, Errors: [^0].*, Skipped: .*",
-      "action" : "HighlightTrigger"
-    },
-    {
-      "regex" : "Tests run: .*, Failures: [^0].*, Errors: .*, Skipped: .*",
-      "action" : "HighlightTrigger"
-    },
-    {
-      "regex" : "BUILD FAILED",
-      "action" : "iTermUserNotificationTrigger",
-      "parameter" : "You suck"
-    },
-    {
-      "regex" : "BUILD SUCCEEDED",
-      "action" : "iTermUserNotificationTrigger",
-      "parameter" : "All izz well"
-    },
-    {
-      "regex" : "Successfully updated Apollo environments",
-      "action" : "iTermUserNotificationTrigger",
-      "parameter" : "Apollo has landed"
-    }
-  ],
   "Cursor Color" : {
     "Green Component" : "1",
     "Blue Component" : "1",
     "Red Component" : "1"
   },
+  "Transparency" : 0,
   "Guid" : "757452E8-A4E8-4643-99B9-0DB1DD86FE7B",
-  "Horizontal Spacing" : 1,
   "Custom Directory" : "No",
+  "Ansi 2 Color" : {
+    "Green Component" : "0.6039215999999999",
+    "Blue Component" : "0.02352941",
+    "Red Component" : "0.3058824"
+  },
+  "Ansi 4 Color" : {
+    "Green Component" : "0.3960784",
+    "Blue Component" : "0.6431373",
+    "Red Component" : "0.2039216"
+  },
+  "Ansi 5 Color" : {
+    "Green Component" : "0.3137255",
+    "Blue Component" : "0.4823529",
+    "Red Component" : "0.4588235"
+  },
+  "Use Non-ASCII Font" : false,
+  "Ansi 7 Color" : {
+    "Green Component" : "0.8431373",
+    "Blue Component" : "0.8117647",
+    "Red Component" : "0.827451"
+  },
+  "Ansi 8 Color" : {
+    "Green Component" : "0.3411765",
+    "Blue Component" : "0.3254902",
+    "Red Component" : "0.3333333"
+  },
+  "Ansi 9 Color" : {
+    "Green Component" : "0.1607843",
+    "Blue Component" : "0.1607843",
+    "Red Component" : "0.9372549"
+  },
   "Link Color" : {
     "Red Component" : 0,
     "Color Space" : "sRGB",
@@ -368,31 +404,5 @@
     "Alpha Component" : 1,
     "Green Component" : 0.35916060209274292
   },
-  "Right Option Key Sends" : 0,
-  "Ansi 6 Color" : {
-    "Green Component" : "0.5960785",
-    "Blue Component" : "0.6039215999999999",
-    "Red Component" : "0.02352941"
-  },
-  "Ansi 0 Color" : {
-    "Green Component" : "0",
-    "Blue Component" : "0",
-    "Red Component" : "0"
-  },
-  "Normal Font" : "MesloLGS-NF-Regular 15",
-  "Ansi 1 Color" : {
-    "Green Component" : "0",
-    "Blue Component" : "0",
-    "Red Component" : "0.8"
-  },
-  "Ansi 2 Color" : {
-    "Green Component" : "0.6039215999999999",
-    "Blue Component" : "0.02352941",
-    "Red Component" : "0.3058824"
-  },
-  "Ansi 3 Color" : {
-    "Green Component" : "0.627451",
-    "Blue Component" : "0",
-    "Red Component" : "0.7686275"
-  }
+  "Allow Title Reporting" : true
 }

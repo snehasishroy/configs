@@ -1,7 +1,8 @@
-alias monitor-dellLeft 0 
-alias monitor-macbook 1 
-alias monitor-dellRight 2 
-alias monitor-asus 0
+alias monitor-dellLeft 2 
+alias monitor-macbook 0 #get monitor id from current window info
+alias monitor-dellRight 3 
+alias monitor-asus 1
+
 alias editor 'IntelliJ IDEA'
 alias browser 'Google Chrome'
 alias outlook  'Microsoft Outlook'
@@ -11,6 +12,7 @@ alias terminal 'iTerm2'
 alias chime 'Amazon Chime'
 alias sublime 'Sublime Text'
 alias finder 'Finder'
+alias slack 'Slack'
 alias vpn 'Cisco AnyConnect Secure Mobility Client'
 
 # Laptop monitor
@@ -45,6 +47,7 @@ layout 2monitors ${sublime}:REPEAT ${macbook-full}
 layout 2monitors ${chime}:REPEAT ${macbook-full}
 layout 2monitors ${oneNote}:REPEAT ${macbook-full}
 layout 2monitors ${vpn}:REPEAT ${macbook-full}
+layout 2monitors ${slack}:REPEAT ${macbook-full}
 
 # Bind a key to trigger this layout
 bind 3:ctrl;shift;cmd layout 3monitors
@@ -53,7 +56,7 @@ bind 2:ctrl;shift;cmd layout 2monitors
 
 # Trigger this layout automatically when 3 monitors are present
 default 3monitors resolutions:${monitor-dellLeft};${monitor-macbook};${monitor-dellRight}
-default 2monitors resolutions:${monitor-dellLeft};${monitor-macbook};${monitor-dellRight}
+default 2monitors resolutions:${monitor-macbook};${monitor-asus}
 
 config nudgePercentOf screenSize
 config resizePercentOf screenSize
@@ -95,15 +98,14 @@ bind ${directionLeft}${focusTo}    focus left
 
 bind b${focusTo} focus 'Firefox'
 bind m${focusTo} focus ${outlook}
-bind c${focusTo} focus ${chime}
 bind g${focusTo} focus ${browser}
 bind i${focusTo} focus ${editor}
-bind t${focusTo} focus ${terminal}
 bind s${focusTo} focus ${sublime}
-bind o${focusTo} focus ${oneNote}
+bind t${focusTo} focus ${oneNote}
 bind f${focusTo} focus ${finder}
 bind r${focusTo} focus ${rdp}
 bind v${focusTo} focus ${vpn}
+bind c${focusTo} focus ${slack}
 
 # Resize Bindings
 #bind ${directionUp}${normalResize}          resize +0   -10%
@@ -133,3 +135,4 @@ config windowHintsIgnoreHiddenWindows false
 config windowHintsSpread true
 config windowHintsDuration 5
 #config windowHintsOrder persist
+
