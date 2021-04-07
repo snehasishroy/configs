@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/asishroy/.oh-my-zsh"
-
-ZSH_THEME="powerlevel10k/powerlevel10k"
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+#ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -141,3 +141,5 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 #For FZF, fuzzy searching
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -s "/Users/asishroy/.scm_breeze/scm_breeze.sh" ] && source "/Users/asishroy/.scm_breeze/scm_breeze.sh"
