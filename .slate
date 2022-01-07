@@ -1,53 +1,45 @@
-alias monitor-dellLeft 2 
 alias monitor-macbook 0 #get monitor id from current window info
-alias monitor-dellRight 3 
-alias monitor-asus 1
+alias monitor-center 1
+alias monitor-right 2
 
 alias editor 'IntelliJ IDEA'
 alias browser 'Google Chrome'
-alias outlook  'Microsoft Outlook'
 alias oneNote  'Microsoft OneNote'
-alias rdp 'Microsoft Remote Desktop'
 alias terminal 'iTerm2'
-alias chime 'Amazon Chime'
+alias cider 'Cider'
 alias sublime 'Sublime Text'
 alias finder 'Finder'
-alias slack 'Slack'
-alias vpn 'Cisco AnyConnect Secure Mobility Client'
+alias firefox 'Firefox'
+alias chat 'Google Chat'
 
 # Laptop monitor
 alias macbook-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-macbook}
 
-# Dell monitor1
-alias dellLeft-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-dellLeft}
+# Center monitor
+alias center-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-center}
 
-# Dell monitor2
-alias dellRight-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-dellRight}
-
-# Asus monitor2
-alias asus-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-asus}
+# Right monitor
+alias right-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${monitor-right}
 
 # THREE MONITOR LAYOUT
-layout 3monitors ${rdp}:REPEAT ${dellRight-full}
-layout 3monitors ${editor}:REPEAT ${dellRight-full}
-layout 3monitors ${terminal}:REPEAT ${dellLeft-full}
-layout 3monitors ${browser}:REPEAT ${dellLeft-full}
-layout 3monitors ${outlook}:REPEAT ${dellLeft-full}
-layout 3monitors ${sublime}:REPEAT ${macbook-full}
-layout 3monitors ${chime}:REPEAT ${macbook-full}
 layout 3monitors ${oneNote}:REPEAT ${macbook-full}
+layout 3monitors ${terminal}:REPEAT ${macbook-full}
+layout 3monitors ${sublime}:REPEAT ${macbook-full}
+layout 3monitors ${chat}:REPEAT ${macbook-full}
+layout 3monitors ${cider}:REPEAT ${center-full}
+layout 3monitors ${editor}:REPEAT ${center-full}
+layout 3monitors ${firefox}:REPEAT ${center-full}
+layout 3monitors ${browser}:REPEAT ${right-full}
 
 # TWO MONITOR LAYOUT
-layout 2monitors ${rdp}:REPEAT ${asus-full}
-layout 2monitors ${editor}:REPEAT ${asus-full}
-layout 2monitors ${terminal}:REPEAT ${asus-full}
-layout 2monitors ${browser}:REPEAT ${asus-full}
-layout 2monitors ${outlook}:REPEAT ${asus-full}
-layout 2monitors ${sublime}:REPEAT ${macbook-full}
-layout 2monitors ${chime}:REPEAT ${macbook-full}
 layout 2monitors ${oneNote}:REPEAT ${macbook-full}
-layout 2monitors ${vpn}:REPEAT ${macbook-full}
-layout 2monitors ${slack}:REPEAT ${macbook-full}
+layout 2monitors ${sublime}:REPEAT ${macbook-full}
+layout 2monitors ${terminal}:REPEAT ${macbook-full}
+layout 3monitors ${chat}:REPEAT ${macbook-full}
+layout 2monitors ${editor}:REPEAT ${center-full}
+layout 2monitors ${browser}:REPEAT ${center-full}
+layout 2monitors ${cider}:REPEAT ${center-full}
+layout 3monitors ${firefox}:REPEAT ${center-full}
 
 # Bind a key to trigger this layout
 bind 3:ctrl;shift;cmd layout 3monitors
@@ -55,8 +47,8 @@ bind 3:ctrl;shift;cmd layout 3monitors
 bind 2:ctrl;shift;cmd layout 2monitors
 
 # Trigger this layout automatically when 3 monitors are present
-default 3monitors resolutions:${monitor-dellLeft};${monitor-macbook};${monitor-dellRight}
-default 2monitors resolutions:${monitor-macbook};${monitor-asus}
+default 3monitors resolutions:${monitor-macbook};${monitor-center};${monitor-right}
+default 2monitors resolutions:${monitor-macbook};${monitor-center}
 
 config nudgePercentOf screenSize
 config resizePercentOf screenSize
@@ -76,9 +68,9 @@ alias nudgeTo :ctrl;shift;alt
 # Push Bindings
 # Half screen
 #bind ${directionUp}${halfScreenPush}    push up    bar-resize:screenSizeY/2
-#bind ${directionRight}${halfScreenPush} push right bar-resize:screenSizeX/2
+bind ${directionRight}${halfScreenPush} push right bar-resize:screenSizeX/2
 #bind ${directionDown}${halfScreenPush}  push down  bar-resize:screenSizeY/2
-#bind ${directionLeft}${halfScreenPush}  push left  bar-resize:screenSizeX/2
+bind ${directionLeft}${halfScreenPush}  push left  bar-resize:screenSizeX/2
 
 #bind f:ctrl;shift;cmd  push down  bar-resize:screenSizeY
 
@@ -96,16 +88,13 @@ bind ${directionRight}${focusTo}    focus right
 bind ${directionDown}${focusTo}    focus down
 bind ${directionLeft}${focusTo}    focus left
 
-bind b${focusTo} focus 'Firefox'
-bind m${focusTo} focus ${outlook}
+bind m${focusTo} focus ${firefox}
 bind g${focusTo} focus ${browser}
-bind i${focusTo} focus ${editor}
 bind s${focusTo} focus ${sublime}
 bind t${focusTo} focus ${oneNote}
 bind f${focusTo} focus ${finder}
-bind r${focusTo} focus ${rdp}
-bind v${focusTo} focus ${vpn}
-bind c${focusTo} focus ${slack}
+bind i${focusTo} focus ${cider}
+bind c${focusTo} focus ${chat}
 
 # Resize Bindings
 #bind ${directionUp}${normalResize}          resize +0   -10%
